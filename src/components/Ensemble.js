@@ -1,9 +1,9 @@
 import React from 'react';
+import bg from '../assets/images/hanger_background-with-parts.svg';
+import '../assets/styles/Ensemble.scss';
 
 export default function Ensemble() {
   return (
-    <div className="Ensemble">
-      Hello Ensemble
-    </div>
+    <div className="Ensemble" style={{ backgroundImage: `url(${bg})` }} />
   );
 }

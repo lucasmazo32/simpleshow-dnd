@@ -1,9 +1,10 @@
 import React from 'react';
+import Ensemble from '../components/Ensemble';
 
 function App() {
   return (
     <div className="App">
-      Hello App
+      <Ensemble />
     </div>
   );
 }
