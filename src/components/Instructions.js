@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import actions from '../actions/index';
 import bg from '../assets/images/start_overlay-box-large.svg';
 import '../assets/styles/Instructions.scss';
 
-export default function Instructions() {
+const { setStart } = actions;
+
+function Instructions({ setStart }) {
   const ref = React.createRef();
 
+  const [myclass, setmyclass] = useState('');
   const [screenchange, setscreenchange] = useState(true);
   const [screenwidth, setscreenwidth] = useState(0);
   const [screenheight, setscreenheight] = useState(0);
@@ -36,13 +42,19 @@ export default function Instructions() {
     }
   }, [screenheight, screenwidth]);
 
+  const handleClick = () => {
+    setmyclass(' start');
+    setStart();
+  };
+
   window.onresize = () => {
     setscreenchange(state => !state);
   };
 
   return (
-    <div ref={ref} className="Instructions" style={{ backgroundImage: `url(${bg})` }}>
+    <div ref={ref} className={`Instructions${myclass}`} style={{ backgroundImage: `url(${bg})` }}>
       <button
+        onClick={handleClick}
         className="btn btn-start"
         type="button"
         aria-label="start"
@@ -57,3 +69,13 @@ export default function Instructions() {
     </div>
   );
 }
+
+Instructions.propTypes = {
+  setStart: PropTypes.func.isRequired,
+};
+
+const mapDispatchToProps = dispatch => ({
+  setStart: () => dispatch(setStart),
+});
+
+export default connect(null, mapDispatchToProps)(Instructions);
