@@ -1,5 +1,6 @@
 .Ensemble {
   position: relative;
+  pointer-events: none;
   width: 100vw;
   height: 100vh;
   background-size: contain;
@@ -13,4 +14,11 @@
     height: 100vh;
     background-color: hsla(0, 0%, 20%, 0.5);
   }
+  .layer.start {
+    display: none;
+  }
+}
+
+.Ensemble.start {
+  pointer-events: inherit;
 }

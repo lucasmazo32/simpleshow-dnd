@@ -63,7 +63,6 @@ function Instructions({ setStart }) {
           left: `${left}px`,
           height: `${height}px`,
           bottom: `${bottom}px`,
-          backgroundColor: '#bbb',
         }}
       />
     </div>
@@ -75,7 +74,7 @@ Instructions.propTypes = {
 };
 
 const mapDispatchToProps = dispatch => ({
-  setStart: () => dispatch(setStart),
+  setStart: () => dispatch(setStart()),
 });
 
 export default connect(null, mapDispatchToProps)(Instructions);
