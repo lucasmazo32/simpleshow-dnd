@@ -1,7 +1,16 @@
 .Ensemble {
+  position: relative;
   width: 100vw;
   height: 100vh;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  .layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: hsla(0, 0%, 20%, 0.5);
+  }
 }
