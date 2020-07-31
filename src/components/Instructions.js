@@ -23,16 +23,16 @@ export default function Instructions() {
   useEffect(() => {
     if (screenwidth / screenheight > 16 / 9) {
       const aw = screenheight * (16 / 9);
-      setwidth(aw / 9);
-      setleft(screenwidth / 2 - aw / 18);
-      setbottom(screenheight / 6);
-      setheight(screenheight / 14);
+      setwidth(aw / 8);
+      setleft(screenwidth / 2 - aw / 16);
+      setbottom(screenheight / 6.6);
+      setheight(screenheight / 10);
     } else {
       const ah = (screenwidth * 9) / 16;
-      setwidth(screenwidth / 9);
-      setleft((screenwidth * 8) / 18);
-      setheight(ah / 14);
-      setbottom(screenheight / 2 - ah / 3);
+      setwidth(screenwidth / 8);
+      setleft((screenwidth * 7) / 16);
+      setheight(ah / 10);
+      setbottom(screenheight / 2 - ah / 2.87);
     }
   }, [screenheight, screenwidth]);
 
@@ -46,7 +46,13 @@ export default function Instructions() {
         className="btn btn-start"
         type="button"
         aria-label="start"
-        style={{ width: `${width}px`, left: `${left}px`, height: `${height}px`, bottom: `${bottom}px` }}
+        style={{
+          width: `${width}px`,
+          left: `${left}px`,
+          height: `${height}px`,
+          bottom: `${bottom}px`,
+          backgroundColor: '#bbb',
+        }}
       />
     </div>
   );
