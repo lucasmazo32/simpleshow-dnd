@@ -10,16 +10,29 @@ import leg2 from '../assets/images/simplemech-leg2.svg';
 import head from '../assets/images/simplemech-head.svg';
 import chest from '../assets/images/simplemech-chest.svg';
 import '../assets/styles/Ensemble.scss';
+import Button from './Button';
 
 function Ensemble({ start }) {
+  const ref = React.createRef();
+
   // const [myclass, setMyClass] = useState('');
-  const [mouseDown, setmouseDown] = useState(false);
   const [offX, setOffX] = useState(0);
   const [offY, setOffY] = useState(0);
-  const [iniX, setIniX] = useState(null);
-  const [iniY, setIniY] = useState(null);
-  const [finX, setFinX] = useState(null);
-  const [finY, setFinY] = useState(null);
+  const [dim, setDim] = useState(null);
+
+  useEffect(() => {
+    if (ref) {
+      const height = ref.current.offsetHeight;
+      const width = ref.current.offsetWidth;
+      if (width / height > 16 / 9) {
+        const aw = height * (16 / 9);
+        setDim({ height, width, aw });
+      } else {
+        const ah = width * (9 / 16);
+        setDim({ height, width, ah });
+      }
+    }
+  }, [true]);
 
   // useEffect(() => {
   //   if (start) {
@@ -27,54 +40,11 @@ function Ensemble({ start }) {
   //   }
   // }, [start]);
 
-  useEffect(() => {
-    if (finX && iniX) {
-      setOffX(finX - iniX);
-    }
-    if (finY && iniY) {
-      setOffY(finY - iniY);
-    }
-  }, [iniX, iniY, finX, finY]);
-
-  const elementDrag = e => {
-    e.preventDefault();
-    if (mouseDown) {
-      setFinX(e.clientX);
-      setFinY(e.clientY);
-    }
-  };
-
-  const handleMouseUp = () => {
-    setmouseDown(false);
-    setIniX(null);
-    setIniY(null);
-    setFinY(null);
-    setFinX(null);
-  };
-
-  const handleArm1 = e => {
-    e.preventDefault();
-    setIniX(e.clientX);
-    setIniY(e.clientY);
-    setmouseDown(true);
-  };
-
   return (
-    <div className="Ensemble start" style={{ backgroundImage: `url(${bg})` }}>
+    <div className="Ensemble start" ref={ref} style={{ backgroundImage: `url(${bg})` }}>
       <div className="general-bg instructions" style={{ backgroundImage: `url(${instructionBox})` }} />
       <div className="general-bg draggable arm1" style={{ backgroundImage: `url(${arm1})`, top: `${offY}px`, left: `${offX}px` }}>
-        <button
-          onMouseDown={handleArm1}
-          onMouseMove={elementDrag}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp}
-          style={mouseDown ? {
-            width: '100%', height: '100%', left: '0%', top: '0%',
-          } : null}
-          type="button"
-          className="btn btn-drag"
-          aria-label="arm1"
-        />
+        <Button areaName="arm1" setOffX={setOffX} setOffY={setOffY} dim={dim} />
       </div>
       <div className="general-bg arm2" style={{ backgroundImage: `url(${arm2})` }} />
       <div className="general-bg leg1" style={{ backgroundImage: `url(${leg1})` }} />
