@@ -68,7 +68,7 @@ export default function Button({
 
   const handleMouseUp = () => {
     setmouseDown(false);
-    if (Math.abs((finX - iniX) - targetX) <= 10 && Math.abs((finY - iniY) - targetY) <= 10) {
+    if (Math.abs((finX - iniX) - targetX) <= dim.width * 0.015 && Math.abs((finY - iniY) - targetY) <= dim.width * 0.015) {
       setOffX(targetX);
       setOffY(targetY);
       setReady(' ready');

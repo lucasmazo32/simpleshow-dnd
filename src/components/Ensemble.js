@@ -16,7 +16,7 @@ import PartContainer from './PartContainer';
 function Ensemble({ start }) {
   const ref = React.createRef();
 
-  // const [myclass, setMyClass] = useState('');
+  const [myclass, setMyClass] = useState('');
   const [answer, setAnswer] = useState([]);
   const [dim, setDim] = useState(null);
 
@@ -34,26 +34,29 @@ function Ensemble({ start }) {
     }
   }, [true]);
 
-  // useEffect(() => {
-  //   if (start) {
-  //     setMyclass(' start');
-  //   }
-  // }, [start]);
+  useEffect(() => {
+    if (answer.length === 6) {
+      setMyClass('');
+    }
+  }, [answer]);
+
+  useEffect(() => {
+    if (start) {
+      setMyClass(' start');
+    }
+  }, [start]);
 
   return (
-    <div className="Ensemble start" ref={ref} style={{ backgroundImage: `url(${bg})` }}>
+    <div className={`Ensemble${myclass}`} ref={ref} style={{ backgroundImage: `url(${bg})` }}>
       <div className="general-bg instructions" style={{ backgroundImage: `url(${instructionBox})` }} />
       <PartContainer dim={dim} name="arm1" image={arm1} iniPos={position.arm1} setAnswer={setAnswer} />
       <PartContainer dim={dim} name="arm2" image={arm2} iniPos={position.arm2} setAnswer={setAnswer} />
       <PartContainer dim={dim} name="leg1" image={leg1} iniPos={position.leg1} setAnswer={setAnswer} />
-      <PartContainer dim={dim} name="leg2" image={leg2} iniPos={position.leg2} setAnswer={setAnswer} test />
-      <div className="general-bg head" style={{ backgroundImage: `url(${head})` }} />
-      <div className="general-bg chest" style={{ backgroundImage: `url(${chest})` }} />
-      <div className="layer start" />
+      <PartContainer dim={dim} name="leg2" image={leg2} iniPos={position.leg2} setAnswer={setAnswer} />
+      <PartContainer dim={dim} name="head" image={head} iniPos={position.head} setAnswer={setAnswer} />
+      <PartContainer dim={dim} name="chest" image={chest} iniPos={position.chest} setAnswer={setAnswer} />
+      <div className={`layer${myclass}`} />
     </div>
-    // <div className={`Ensemble${myclass}`} style={{ backgroundImage: `url(${bg})` }}>
-    //   <div className={`layer${myclass}`} />
-    // </div>
   );
 }
 

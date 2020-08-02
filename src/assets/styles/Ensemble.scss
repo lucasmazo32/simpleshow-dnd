@@ -1,5 +1,6 @@
 .Ensemble {
   position: relative;
+  overflow: hidden;
   pointer-events: none;
   width: 100vw;
   height: 100vh;
@@ -29,7 +30,6 @@
     pointer-events: inherit;
   }
   .btn-drag {
-    background-color: rgba(128, 128, 128, 0.425);
     position: relative;
     z-index: 4;
     pointer-events: inherit;
