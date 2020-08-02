@@ -1,0 +1,46 @@
+.Ensemble {
+  position: relative;
+  overflow: hidden;
+  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  .layer {
+    position: absolute;
+    opacity: 1;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    transition: 0.5s ease all;
+    background-color: hsla(0, 0%, 20%, 0.5);
+  }
+  .layer.start {
+    opacity: 0;
+  }
+  .general-bg {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .draggable {
+    pointer-events: inherit;
+  }
+  .btn-drag {
+    position: relative;
+    z-index: 4;
+    pointer-events: inherit;
+  }
+  .ready {
+    pointer-events: none;
+  }
+}
+
+.Ensemble.start {
+  pointer-events: inherit;
+}

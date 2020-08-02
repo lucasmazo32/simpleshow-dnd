@@ -1,68 +1,46 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
 
-## Available Scripts
+* [About the Project](#about-the-project)
+* [Built With](#built-with)
+* [Getting Started](#getting-started)
+* [Contact](#contact)
 
-In the project directory, you can run:
+<!-- about-the-project -->
+# About the project
 
-### `yarn start`
+Fun Drag and Drop robot. It has a built-in help which allows you to place the part near where it is supposed to be at a reasonable distance. It features an adaptative design depending on the user screen, though is not optimized in case the user decides to change the size of the screen. For it to work as expected, the user will have to refresh the page.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+I hope you enjoy it!
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Built with
 
-### `yarn test`
+- Node v14.0.0
+- yarn 1.22.4
+- React
+- Redux
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting started
 
-### `yarn build`
+To get a local copy up and running, follow these simple steps.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Clone or fork the [repository](https://github.com/lucasmazo32/simpleshow-dnd).
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+After cloning and changing directory, run in your terminal:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+> ``` yarn install ```
 
-### `yarn eject`
+To start the local server (webpack), run in your terminal:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+> ``` yarn start ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+If you want to build the production files for the project, run:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+> ``` yarn build ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Contact
 
-## Learn More
+Lucas Mazo:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Twitter: [@lucasmazo32](https://twitter.com/lucasmazo32)
+- Github: [lucasmazo32](https://github.com/lucasmazo32)
+- LinkedIn: [Lucas Mazo](https://www.linkedin.com/in/lucasmazo/)
