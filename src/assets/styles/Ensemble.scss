@@ -34,6 +34,9 @@
     z-index: 4;
     pointer-events: inherit;
   }
+  .ready {
+    pointer-events: none;
+  }
 }
 
 .Ensemble.start {

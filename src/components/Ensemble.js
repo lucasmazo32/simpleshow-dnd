@@ -9,15 +9,15 @@ import leg1 from '../assets/images/simplemech-leg1.svg';
 import leg2 from '../assets/images/simplemech-leg2.svg';
 import head from '../assets/images/simplemech-head.svg';
 import chest from '../assets/images/simplemech-chest.svg';
+import position from '../helpers/buttonPosition';
 import '../assets/styles/Ensemble.scss';
-import Button from './Button';
+import PartContainer from './PartContainer';
 
 function Ensemble({ start }) {
   const ref = React.createRef();
 
   // const [myclass, setMyClass] = useState('');
-  const [offX, setOffX] = useState(0);
-  const [offY, setOffY] = useState(0);
+  const [answer, setAnswer] = useState([]);
   const [dim, setDim] = useState(null);
 
   useEffect(() => {
@@ -43,12 +43,10 @@ function Ensemble({ start }) {
   return (
     <div className="Ensemble start" ref={ref} style={{ backgroundImage: `url(${bg})` }}>
       <div className="general-bg instructions" style={{ backgroundImage: `url(${instructionBox})` }} />
-      <div className="general-bg draggable arm1" style={{ backgroundImage: `url(${arm1})`, top: `${offY}px`, left: `${offX}px` }}>
-        <Button areaName="arm1" setOffX={setOffX} setOffY={setOffY} dim={dim} />
-      </div>
-      <div className="general-bg arm2" style={{ backgroundImage: `url(${arm2})` }} />
-      <div className="general-bg leg1" style={{ backgroundImage: `url(${leg1})` }} />
-      <div className="general-bg leg2" style={{ backgroundImage: `url(${leg2})` }} />
+      <PartContainer dim={dim} name="arm1" image={arm1} iniPos={position.arm1} setAnswer={setAnswer} />
+      <PartContainer dim={dim} name="arm2" image={arm2} iniPos={position.arm2} setAnswer={setAnswer} />
+      <PartContainer dim={dim} name="leg1" image={leg1} iniPos={position.leg1} setAnswer={setAnswer} />
+      <PartContainer dim={dim} name="leg2" image={leg2} iniPos={position.leg2} setAnswer={setAnswer} test />
       <div className="general-bg head" style={{ backgroundImage: `url(${head})` }} />
       <div className="general-bg chest" style={{ backgroundImage: `url(${chest})` }} />
       <div className="layer start" />
