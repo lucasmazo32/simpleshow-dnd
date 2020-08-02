@@ -1,0 +1,25 @@
+.Congrats {
+  position: absolute;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s ease;
+  .btn {
+    position: relative;
+    pointer-events: none;
+  }
+}
+
+.Congrats.show {
+  display: block;
+  opacity: 1;
+  pointer-events: inherit;
+  .btn {
+    pointer-events: all;
+  }
+}

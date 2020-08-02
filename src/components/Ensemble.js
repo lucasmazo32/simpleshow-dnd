@@ -12,6 +12,7 @@ import chest from '../assets/images/simplemech-chest.svg';
 import position from '../helpers/buttonPosition';
 import '../assets/styles/Ensemble.scss';
 import PartContainer from './PartContainer';
+import Congrats from './Congrats';
 
 function Ensemble({ start }) {
   const ref = React.createRef();
@@ -19,6 +20,7 @@ function Ensemble({ start }) {
   const [myclass, setMyClass] = useState('');
   const [answer, setAnswer] = useState([]);
   const [dim, setDim] = useState(null);
+  const [congrats, setCongrats] = useState('');
 
   useEffect(() => {
     if (ref) {
@@ -37,6 +39,7 @@ function Ensemble({ start }) {
   useEffect(() => {
     if (answer.length === 6) {
       setMyClass('');
+      setCongrats(' show');
     }
   }, [answer]);
 
@@ -56,6 +59,7 @@ function Ensemble({ start }) {
       <PartContainer dim={dim} name="head" image={head} iniPos={position.head} setAnswer={setAnswer} />
       <PartContainer dim={dim} name="chest" image={chest} iniPos={position.chest} setAnswer={setAnswer} />
       <div className={`layer${myclass}`} />
+      <Congrats congrats={congrats} setCongrats={setCongrats} setMyClass={setMyClass} />
     </div>
   );
 }

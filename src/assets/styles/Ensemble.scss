@@ -9,14 +9,16 @@
   background-position: center;
   .layer {
     position: absolute;
+    opacity: 1;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
+    transition: 0.5s ease all;
     background-color: hsla(0, 0%, 20%, 0.5);
   }
   .layer.start {
-    display: none;
+    opacity: 0;
   }
   .general-bg {
     position: absolute;
